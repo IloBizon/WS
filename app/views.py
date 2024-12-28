@@ -25,5 +25,3 @@ class UpdateOrder(UpdateView):
     template_name = "order_update.html'
     fields = "__all__"
     success_url = reverse_lazy('main')
-
-
