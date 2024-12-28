@@ -6,22 +6,28 @@ from .models import Product, Order
 
 class ProductList(ListView):
     model = Product
-    template_name = 'main.html'
+    template_name = 'index.html'
 
 
 class ProductDetail(DetailView):
     model = Product
     template_name = 'detail.html'
 
+class CreateProduct(CreateView):
+    model = Product
+    template_name = 'form.html'
+    fields = "__all__"
+    success_url = reverse_lazy('main')
+
 
 class CreateOrder(CreateView):
     model = Order
-    template_name = 'order_create.html'
+    template_name = 'form.html'
     fields = "__all__"
     success_url = reverse_lazy('main')
 
 class UpdateOrder(UpdateView):
     model = Order
-    template_name = "order_update.html'
+    template_name = "form.html"
     fields = "__all__"
     success_url = reverse_lazy('main')
